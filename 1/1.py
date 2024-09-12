@@ -5,12 +5,12 @@ def solution_a():
     # lines = read_input('in_a.txt')
     lines = read_input_lines('input.txt')
 
-    sum = 0
+    score = 0
     for line in lines:
         num_chars = [char for char in line if not char.isalpha()]
-        sum += int(''.join([num_chars[0], num_chars[-1]]))
+        score += int(''.join([num_chars[0], num_chars[-1]]))
 
-    print(sum)
+    print(score)
 
 
 def generate_digits_map():
@@ -23,7 +23,7 @@ def solution_b():
     # lines = read_input('in_b.txt')
     lines = read_input_lines('input.txt')
     digits_map = generate_digits_map()
-    sum = 0
+    score = 0
 
     for line in lines:
         modified_line = []
@@ -34,9 +34,9 @@ def solution_b():
                 for k in digits_map.keys():
                     if line[i:].startswith(k):
                         modified_line.append(digits_map[k])
-        sum += int(''.join([modified_line[0], modified_line[-1]]))
+        score += int(''.join([modified_line[0], modified_line[-1]]))
 
-    print(sum)
+    print(score)
 
 
 solution_a()
