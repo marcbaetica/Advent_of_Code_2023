@@ -45,14 +45,21 @@ def solution_a():
     for i, cubes_champions in games_played.items():
         colors = ['red', 'green', 'blue']
         if all([cubes_champions[color] <= max_cubes[color] for color in colors]):
-            print(f'Game {i} worked! Champions={cubes_champions}. Expected={max_cubes}.')
+            # print(f'Game {i} worked! Champions={cubes_champions}. Expected={max_cubes}.')
             score += i
 
     print(score)
 
 
 def solution_b():
-    pass
+    # lines = read_input_lines('in_a.txt')
+    lines = read_input_lines('input.txt')
+    score = 0
+    for line in lines:
+        min_set_per_game = extract_champion_from_actions(line)
+        power = min_set_per_game['red'] * min_set_per_game['green'] * min_set_per_game['blue']
+        score += power
+    print(score)
 
 
 solution_a()
